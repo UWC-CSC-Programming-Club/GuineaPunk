@@ -1,0 +1,22 @@
+begin 0
+0: "Welcome!" -> 1
+1: "Now choose your character (Warrior/Wizard): "
+	A -> 2
+	I -> 2
+2: "Now choose your adventure (Dungeon Secret/Rainforest Exploration): "
+	D -> 3
+	R -> 4
+3: "You saw 3 buttons on the gate, press which one (1/2/3)?"
+	1 -> 31
+	2 -> 32
+	3 -> 33
+31: "You became another guy in a different place." -> 99
+32: "The gate opens" -> 99
+33: "You die" -> 99
+4: "A monkey swings toward you, what do you do?(K)"
+	K -> 41
+41: "Kill the monkey" -> 99
+99: "You have died :(" -> 100
+98: "You have finished the adventure!" -> 100
+100: ""
+end 100
