@@ -1,3 +1,11 @@
+META
+	# Name of the game.
+	name: "Game 1"
+	author: "Pengyue Marko Kristina"
+	length: "30"
+	genre: "Adventure"
+/META
+GAME
 begin 0
 0: "Welcome!" -> 1
 1: "Now choose your character (Warrior/Wizard): "
@@ -20,3 +28,4 @@ begin 0
 98: "You have finished the adventure!" -> 100
 100: ""
 end 100
+/GAME
