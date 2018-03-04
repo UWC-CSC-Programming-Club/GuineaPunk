@@ -23,14 +23,38 @@
 #define STRING
 #endif
 
+#ifndef STDLIB
+#include <stdlib.h>
+#define STDLIB
+#endif
+
 #define GAMES_PATH "./games/"
+
+char* substrFromIndexToChar(char* string, int length, int index, char lastCharacter) {
+	char* outptr = (char*)malloc(length * sizeof(char));
+	int i, j;
+	for (i = index, j = 0; *(string + i) != lastCharacter; i++, j++) {
+		*(outptr + j) = *(string + i);
+		*(outptr + j + 1) = '\0';
+	}
+	return outptr;
+}
 
 gameData readGameData(char *gamePath) {
 	char lineOfCode[256];
 	FILE *f = fopen(gamePath, "r");
-	fgets(lineOfCode, 256, f);	
+	while (1) {
+		fgets(lineOfCode, 256, f);
+		if (lineOfCode[0] != '#') {
+			break;
+		}
+		printf("%s", lineOfCode);
+		if (strncmp(lineOfCode, "#name", strlen("#name")) == 0) {
+			char* gameName = substrFromIndexToChar(lineOfCode, 20, 6, '\n');
+			printf("%s\n", gameName);
+		}
+	}
 	fclose(f);
-	printf("%s", lineOfCode);
 }
 
 void chooseAGame() {
