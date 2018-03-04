@@ -1,3 +1,8 @@
+#name TestGame
+#author PengYue
+#length 60
+#genre 2
+
 begin 0
 0: "Welcome!" -> 1
 1: "Now choose your character (Warrior/Wizard): "
