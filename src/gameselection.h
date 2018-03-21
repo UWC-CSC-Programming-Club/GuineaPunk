@@ -5,4 +5,4 @@
 
 void chooseAGame();
 
-gameData readGameData(char *gamePath);
+struct gameData readGameData(char *gamePath);

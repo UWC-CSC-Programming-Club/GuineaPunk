@@ -41,6 +41,7 @@ char* substrFromIndexToChar(char* string, int length, int index, char lastCharac
 }
 
 gameData readGameData(char *gamePath) {
+	gameData metaData;
 	char lineOfCode[256];
 	FILE *f = fopen(gamePath, "r");
 	while (1) {
@@ -50,8 +51,8 @@ gameData readGameData(char *gamePath) {
 		}
 		printf("%s", lineOfCode);
 		if (strncmp(lineOfCode, "#name", strlen("#name")) == 0) {
-			char* gameName = substrFromIndexToChar(lineOfCode, 20, 6, '\n');
-			printf("%s\n", gameName);
+			metaData.name = substrFromIndexToChar(lineOfCode, GAME_N_MAX, 6, '\n');
+			printf("%s\n", metaData.name);
 		}
 	}
 	fclose(f);
